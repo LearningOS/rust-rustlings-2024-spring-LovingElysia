@@ -36,7 +36,8 @@
 
 // I AM NOT DONE
 
-fn main() {}
+fn main() {
+}
 
 #[cfg(test)]
 mod tests {
