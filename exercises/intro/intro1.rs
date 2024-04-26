@@ -10,10 +10,7 @@
 // line, or try changing what it outputs in your terminal. Try removing a
 // semicolon and see what happens!
 //
-// Execute `rustlings hint intro1` or use the `hint` watch subcommand for a
-// hint.
-
-
+// Execute `rustlings hint intro1` or use the `hint` watch subcommand fo
 fn main() {
     println!("Hello and");
     println!(r#"       welcome to...                      "#);
