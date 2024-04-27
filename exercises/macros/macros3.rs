@@ -8,6 +8,7 @@
 // I AM NOT DONE
 
 mod macros {
+    #[macro_use]
     macro_rules! my_macro {
         () => {
             println!("Check out my macro!");
@@ -15,6 +16,7 @@ mod macros {
     }
 }
 
-fn main() {
-    my_macro!();
+fn main(){
+    macros::my_macro!();
 }
+
