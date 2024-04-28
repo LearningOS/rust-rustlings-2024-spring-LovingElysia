@@ -2,7 +2,7 @@
 	graph
 	This problem requires you to implement a basic graph functio
 */
-// I AM NOT DONE
+
 
 use std::collections::{HashMap, HashSet};
 use std::fmt;
@@ -53,7 +53,7 @@ pub trait Graph {
         }
     }
     fn add_edge(&mut self, edge: (&str, &str, i32)) {
-        //TODO
+        //TODOc
         let (node1, node2, weight) = edge;
         self.adjacency_table_mutable().entry(node1.to_string())
             .or_insert_with(Vec::new)
