@@ -73,13 +73,22 @@ impl<T> LinkedList<T> {
         }
     }
 	pub fn reverse(&mut self){
-		// TODO
-	}
+        let mut current = self.start;
+
+        std::mem::swap(&mut self.start, &mut self.end);
+
+        while let Some(mut node_ptr) = current {
+            let node = unsafe { node_ptr.as_mut() };
+            std::mem::swap(&mut node.next, &mut node.prev);
+            current = node.prev;
+        }
+    }
 }
+
 
 impl<T> Display for LinkedList<T>
 where
-    T: Display,
+    T: Display
 {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match self.start {

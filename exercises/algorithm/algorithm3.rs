@@ -5,8 +5,23 @@
 */
 // I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
+fn sort<T>(array: &mut [T])
+where T:PartialOrd
+{
 	//TODO
+   let mut swaped = true;
+   let mut n = array.len();
+   while swaped {
+        swaped = false;
+        for i in 1..n {
+            if array[i-1]>array[i]
+            {
+               array.swap(i, i-1);
+                swaped = true;
+            }
+        } 
+        n -= 1;
+   }
 }
 #[cfg(test)]
 mod tests {

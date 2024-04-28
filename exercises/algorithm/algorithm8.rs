@@ -67,17 +67,37 @@ impl<T> myStack<T> {
         }
     }
     pub fn push(&mut self, elem: T) {
-        //TODO
+        if !self.q1.is_empty() {
+            self.q1.enqueue(elem);
+        } else {
+            self.q2.enqueue(elem);
+        }
     }
     pub fn pop(&mut self) -> Result<T, &str> {
-        //TODO
-		Err("Stack is empty")
+        if self.is_empty() {
+            return Err("Stack is empty");
+        }
+    
+        let (src_queue, dst_queue) = if !self.q1.is_empty() {
+            (&mut self.q1, &mut self.q2)
+        } else {
+            (&mut self.q2, &mut self.q1)
+        };
+    
+        // 将源队列中除最后一个元素外的所有元素转移到目标队列
+        while src_queue.size() > 1 {
+            dst_queue.enqueue(src_queue.dequeue().unwrap());
+        }
+    
+        // 弹出并返回源队列中的最后一个元素
+        src_queue.dequeue()
     }
     pub fn is_empty(&self) -> bool {
 		//TODO
-        true
+        self.q1.is_empty() && self.q2.is_empty()
     }
 }
+
 
 #[cfg(test)]
 mod tests {
